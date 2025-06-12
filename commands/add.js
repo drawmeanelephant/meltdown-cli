@@ -1,8 +1,8 @@
 import { addTask } from '../utils/storage.js';
-import { snarkForAdd } from '../utils/snark.js';
+import { snarkForAdd } from '../utils/crisisLoader.js';
 
-export default function add(task) {
+export default async function add(task) {
   const dread = Math.floor(Math.random() * 5) + 1;
-  addTask(task, dread);
-  console.log(snarkForAdd(task, dread));
+  await addTask(task, dread);
+  console.log(await snarkForAdd(task, dread));
 }
