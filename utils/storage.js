@@ -8,3 +8,8 @@ export async function addTask(title, dread) {
   data.tasks.push({ id, title, dread, status: 'pending' });
   await fs.writeJson(FILE, data, { spaces: 2 });
 }
+
+export async function getTasks() {
+  const data = await fs.readJson(FILE).catch(() => ({ tasks: [] }));
+  return data.tasks;
+}
